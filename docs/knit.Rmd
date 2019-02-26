@@ -1,0 +1,18 @@
+---
+title: "Differential Equations"
+author: "Daniel Smith"
+date: "26/02/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Differential Equations
+
+"Differential equations (DE) are mathematical equations that describe how a quantitiy changes as a function of one or several (independent) variables, often time or space. These differential equations play an important role in the sciences"
+
+
+
+
