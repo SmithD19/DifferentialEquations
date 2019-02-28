@@ -13,6 +13,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 "Differential equations (DE) are mathematical equations that describe how a quantitiy changes as a function of one or several (independent) variables, often time or space. These differential equations play an important role in the sciences"
 
+"Differential equations can be seperated into stochastic versus determanistic DEs. Problems can then be split into initial value problems versus boundary value problems. One also distinguishes ordinary differential equations from delay differential equations, partial differential equations, differenatial algebraic equations"
+
+One of the most comprehensive packages for solving differential equations in R is called `desolve`. Here we will discuss and work through some examples of solving many differential equations with R and the `desolve` package.
+
+## Logistic Growth
+
+"In an ODE, the unknown quantity is a function of a single independent variable" - Logistic growth is perhaps one of the most common forms of differential equations present in the sciences and plays a large part in ecology and biological systems.
+
+Differential equation:
+$$ \frac{dN}{dt} = rN(1-\frac{N}{K}) $$
+Analytical solution:
+$$ N_{t} = \frac{KN_{0}e^{rt}}{K+N_{0}(e^{rt}-1)} $$
+R implementation:
+
+```{r}
+logistic <- function(t, r, K, NO) {
+  K * NO * exp(r * t) / (K + NO * (exp(r * t) - 1))
+}
+
+plot(0:100, logistic(t = 0:100, r = 0.1, K = 10, NO = 0.1))
+```
+
+
 
 
 
