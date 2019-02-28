@@ -35,7 +35,46 @@ logistic <- function(t, r, K, NO) {
 plot(0:100, logistic(t = 0:100, r = 0.1, K = 10, NO = 0.1))
 ```
 
+## A Simple ODE: Atmospheric Chaos
+
+The Lorenz equations were the first chatioc dynamic system to be described. They consist of three differential equations used to represent the idealised behaviour of the earths atmosphere for three state variables, _X_, _Y_, and _Z_.
 
 
+$$ \frac{dX}{dt} = aX+YZ $$
+$$ \frac{dY}{dt} = b(Y-Z) $$
+$$ \frac{dZ}{dt} = -XY+cY-Z $$
 
+Implementation of an ODE in R can be seperated into two parts, model specification and model application.
+
+Model Specification:
+* Defining the model parameters and their values
+* Defining model state variables and their initial conditions
+* Implementing the model equations that calculate the rate of change of the state variables (e.g. _dX/dt_)
+
+Model Application:
+* Specification of the time at which the model output is wanted
+* Intergration of the model equations (uses R-functions from deSolve)
+* PLotting the model results
+
+### 1.1 Model Specification
+
+There are three model parameters from the above equations (`a`, `b`, and `c`). We shoudl store these parameters as vectors with assigned names and values:
+
+```{r}
+parameters <- c(a = -8/3,
+                b = -10,
+                c = 28)
+```
+
+We should also do this with the state variables (`X`, `Y`, and `Z`) defined in the equations. We store these as vectors and again assign their intitial values:
+
+```{r}
+state <- c(X = 1,
+           Y = 1,
+           Z = 1)
+```
+
+##### Model Equations
+
+The equations specified in the function (in this case `Lorenz`)
 
